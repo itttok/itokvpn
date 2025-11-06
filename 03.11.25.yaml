@@ -73,7 +73,7 @@ proxies:
     path: "/vless-ws/"
     headers:
       Host: id1-prem.kitu.my.id
-- name: d
+- name: e
   type: vless
   server: api24-normal.tiktokv.com
   port: 443
@@ -96,7 +96,7 @@ proxy-groups:
       - a
       - b
       - c
-      - d
+      - e
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: URL-TEST
@@ -107,7 +107,7 @@ proxy-groups:
       - a
       - b
       - c
-      - d
+      - e
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -117,7 +117,7 @@ proxy-groups:
       - a
       - b
       - c
-      - d
+      - e
   - name: GLOBAL
     type: select
     proxies:
