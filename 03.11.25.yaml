@@ -77,7 +77,7 @@ proxies:
   type: vless
   server: api24-normal.tiktokv.com
   port: 443
-  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  uuid: eb954b8e-98dd-4285-91d0-db9017cbb893
   udp: true
   skip-cert-verify: true
   tls: true
