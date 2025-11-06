@@ -1,0 +1,237 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: DWD
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - 1.0.0.1
+    - https://dns.cloudflare.com/dns-query
+    - https://dns.google/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+    - 112.215.203.254
+proxies:
+- name: a
+  type: vless
+  server: 104.21.28.78
+  port: 443
+  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: id1-prem.kitu.my.id
+  network: ws
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+      Host: id1-prem.kitu.my.id
+- name: b
+  type: vless
+  server: api24-normal-alisg.tiktokv.com
+  port: 443
+  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: id1-prem.kitu.my.id
+  network: ws
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+      Host: id1-prem.kitu.my.id
+- name: c
+  type: vless
+  server: api24-normal-useast1a.tiktokv.com
+  port: 443
+  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: id1-prem.kitu.my.id
+  network: ws
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+      Host: id1-prem.kitu.my.id
+- name: d
+  type: vless
+  server: api24-normal.tiktokv.com
+  port: 443
+  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  udp: true
+  skip-cert-verify: true
+  tls: true
+  servername: id1-prem.kitu.my.id
+  network: ws
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+      Host: id1-prem.kitu.my.id
+proxy-groups:
+  - name: LOAD-BALANCE
+    type: load-balance
+    strategy: round-robin
+    disable-udp: false
+    proxies:
+      - a
+      - b
+      - c
+      - d
+    url: http://www.gstatic.com/generate_204
+    interval: '10'
+  - name: URL-TEST
+    type: url-test
+    strategy: consistent-hashing
+    disable-udp: true
+    proxies:
+      - a
+      - b
+      - c
+      - d
+    url: http://www.gstatic.com/generate_204
+    interval: '10'
+    tolerance: '15'
+  - name: SELECT
+    type: select
+    proxies:
+      - a
+      - b
+      - c
+      - d
+  - name: GLOBAL
+    type: select
+    proxies:
+      - SELECT
+      - LOAD-BALANCE
+      - URL-TEST
+  - name: Whatsapp
+    type: select
+    proxies:
+      - DIRECT
+      - GLOBAL
+  - name: Facebook
+    type: select
+    proxies:
+      - DIRECT
+      - GLOBAL
+  - name: Instagram
+    type: select
+    proxies:
+      - DIRECT
+      - GLOBAL
+rules:
+  # Global
+  - MATCH,GLOBAL,Whatsapp
+  # Whatsapp
+  - DOMAIN-SUFFIX,m.me,Whatsapp
+  - DOMAIN-SUFFIX,oculus.com,Whatsapp
+  - DOMAIN-SUFFIX,oculuscdn.com,Whatsapp
+  - DOMAIN-SUFFIX,rocksdb.org,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp.com,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp.net,Whatsapp
+  - DOMAIN-SUFFIX,wa.me,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp-plus.info,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp-plus.me,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp-plus.net,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp.cc,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp.info,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp.org,Whatsapp
+  - DOMAIN-SUFFIX,whatsapp.tv,Whatsapp
+  - DOMAIN-SUFFIX,whatsappbrand.com,Whatsapp
+  - DST-PORT,3478,Whatsapp
+  - DST-PORT,4244,Whatsapp
+  - DST-PORT,5222,Whatsapp
+  - DST-PORT,5223,Whatsapp
+  - DST-PORT,5228,Whatsapp
+  - DST-PORT,5288,Whatsapp
+  - DST-PORT,5242,Whatsapp
+  - DST-PORT,5349,Whatsapp
+  - DST-PORT,34784,Whatsapp
+  - DST-PORT,45395,Whatsapp
+  - DST-PORT,50318,Whatsapp
+  - DST-PORT,59234,Whatsapp
+  - DST-PORT,12222,Whatsapp
+  - DST-PORT,11112,Whatsapp
+  - DST-PORT,25566,Whatsapp
+  # Facebook
+  - DOMAIN-SUFFIX,messenger.com,Facebook
+  - DOMAIN-SUFFIX,facebook.com,Facebook
+  - DOMAIN-SUFFIX,facebook.net,Facebook
+  - DOMAIN-SUFFIX,fb.com,Facebook
+  - DOMAIN-SUFFIX,fb.me,Facebook
+  - DOMAIN-SUFFIX,fbaddins.com,Facebook
+  - DOMAIN-SUFFIX,fbcdn.net,Facebook,Facebook
+  - DOMAIN-SUFFIX,fbsbx.com,Facebook
+  - DOMAIN-SUFFIX,fbworkmail.com,Facebook
+  - DOMAIN-KEYWORD,.facebook.,Facebook
+  - DOMAIN-SUFFIX,facebookmail.com,Facebook
+  - DOMAIN-KEYWORD,xx.fbcdn.net,Facebook
+  - DOMAIN-KEYWORD,fna.fbcdn.net,Facebook
+  - DOMAIN-SUFFIX,accountkit.com,Facebook
+  - DOMAIN-SUFFIX,faacebook.com,Facebook
+  - DOMAIN-SUFFIX,facebbook.com,Facebook
+  - DOMAIN-SUFFIX,facebook-dns.com,Facebook
+  - DOMAIN-SUFFIX,facebook-hardware.com,Facebook
+  - DOMAIN-SUFFIX,facebook.co,Facebook
+  - DOMAIN-SUFFIX,facebook.com.au,Facebook
+  - DOMAIN-SUFFIX,facebook.com.mx,Facebook
+  - DOMAIN-SUFFIX,facebook.it,Facebook
+  - DOMAIN-SUFFIX,facebookcareers.com,Facebook
+  - DOMAIN-SUFFIX,facebookenterprise.com,Facebook
+  - DOMAIN-SUFFIX,facebookrecruiting.com,Facebook
+  - DOMAIN-SUFFIX,facebookstudy.com,Facebook
+  - DOMAIN-SUFFIX,facebookvirtualassistant.com,Facebook
+  - DOMAIN-SUFFIX,fb.audio,Facebook
+  - DOMAIN-SUFFIX,fb.gg,Facebook
+  - DOMAIN-SUFFIX,fb.watch,Facebook
+  - DOMAIN-SUFFIX,fbe2e.com,Facebook
+  - DOMAIN-SUFFIX,fbinfra.net,Facebook
+  - DOMAIN-SUFFIX,fbpigeon.com,Facebook
+  - DOMAIN-SUFFIX,fbthirdpartypixel.com,Facebook
+  - DOMAIN-SUFFIX,fbwat.ch,Facebook
+  - DOMAIN-SUFFIX,internet.org,Facebook
+  - DOMAIN-SUFFIX,m-freeway.com,Facebook
+  - DOMAIN-SUFFIX,parse.com,Facebook
+  - DOMAIN-SUFFIX,wit.ai,Facebook
+  - DOMAIN-KEYWORD,m.me,Facebook
+  - DOMAIN-SUFFIX,msngr.com,Facebook
+  - IP-CIDR,157.240.0.0/16,Facebook
+  - IP-CIDR,103.4.96.0/22,Facebook
+  - IP-CIDR,129.134.0.0/17,Facebook
+  - IP-CIDR,157.240.0.0/17,Facebook
+  - IP-CIDR,173.252.64.0/19,Facebook
+  - IP-CIDR,173.252.96.0/19,Facebook
+  - IP-CIDR,179.60.192.0/22,Facebook
+  - IP-CIDR,185.60.216.0/22,Facebook
+  - IP-CIDR,204.15.20.0/22,Facebook
+  - IP-CIDR,31.13.24.0/21,Facebook
+  - IP-CIDR,31.13.64.0/18,Facebook
+  - IP-CIDR,45.64.40.0/22,Facebook
+  - IP-CIDR,66.220.144.0/20,Facebook
+  - IP-CIDR,69.171.224.0/19,Facebook
+  - IP-CIDR,69.63.176.0/20,Facebook
+  - IP-CIDR,74.119.76.0/22,Facebook
+  # Instagram
+  - DOMAIN-SUFFIX,cdninstagram.com,Instagram
+  - DOMAIN-SUFFIX,instagram.com,Instagram
+  - DOMAIN-KEYWORD,instagram,Instagram
