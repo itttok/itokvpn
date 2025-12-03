@@ -83,20 +83,20 @@ proxies:
     path: "/vless-ws/"
     headers:
       Host: id1-prem.kitu.my.id
-- name: trial
+- name: ava
   type: vless
-  server: api24-normal.tiktokv.com
+  server: ava.game.naver.com
   port: 443
   uuid: eb954b8e-98dd-4285-91d0-db9017cbb893
   udp: true
   skip-cert-verify: true
   tls: true
-  servername: id1-prem.kitu.my.id
+  servername: ava.game.naver.com.itttok-wildcard-ssl-panel.kitu.my.id
   network: ws
   ws-opts:
     path: "/vless-ws/"
     headers:
-      Host: id1-prem.kitu.my.id
+      Host: ava.game.naver.com.itttok-wildcard-ssl-panel.kitu.my.id
 proxy-groups:
   - name: LOAD-BALANCE
     type: load-balance
@@ -106,7 +106,7 @@ proxy-groups:
       - a
       - b
       - c
-      - trial
+      - ava
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: URL-TEST
@@ -117,7 +117,7 @@ proxy-groups:
       - a
       - b
       - c
-      - trial
+      - ava
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -127,7 +127,7 @@ proxy-groups:
       - a
       - b
       - c
-      - trial
+      - ava
   - name: GLOBAL
     type: select
     proxies:
