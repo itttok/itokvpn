@@ -41,7 +41,7 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: a
+- name: tiktod
   type: vless
   server: 104.21.28.78
   port: 443
@@ -107,7 +107,7 @@ proxy-groups:
     strategy: round-robin
     disable-udp: false
     proxies:
-      - a
+      - tiktod
       - b
       - c
       - ava
@@ -118,7 +118,7 @@ proxy-groups:
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - a
+      - tiktod
       - b
       - c
       - ava
@@ -128,7 +128,7 @@ proxy-groups:
   - name: SELECT
     type: select
     proxies:
-      - a
+      - tiktod
       - b
       - c
       - ava
