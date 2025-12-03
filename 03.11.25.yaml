@@ -57,35 +57,35 @@ proxies:
     headers:
       Host: id1-prem.kitu.my.id
 - name: b
-  type: vless
-  server: api24-normal-alisg.tiktokv.com
-  port: 443
-  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
-  udp: true
-  chipher: auto
-  skip-cert-verify: true
-  tls: true
-  servername: id1-prem.kitu.my.id
-  network: ws
-  ws-opts:
-    path: "/vless-ws/"
-    headers:
-      Host: id1-prem.kitu.my.id
-- name: c
-  type: vless
   server: api24-normal-useast1a.tiktokv.com
   port: 443
+  type: vless
   uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
-  udp: true
-  chipher: auto
-  skip-cert-verify: true
+  cipher: auto
   tls: true
-  servername: id1-prem.kitu.my.id
+  skip-cert-verify: true
+  servername: api24-normal-useast1a.tiktokv.com.ittok-wildcard-ssl-panel.kitu.my.id
   network: ws
   ws-opts:
     path: "/vless-ws/"
     headers:
-      Host: id1-prem.kitu.my.id
+     Host: api24-normal-useast1a.tiktokv.com.ittok-wildcard-ssl-panel.kitu.my.id
+  udp: true
+- name: c
+  server: api24-normal-alisg.tiktokv.com
+  port: 443
+  type: vless
+  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: api24-normal-alisg.tiktokv.com.it-wildcard-ssl-panel.kitu.my.id
+  network: ws
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+     Host: api24-normal-alisg.tiktokv.com.it-wildcard-ssl-panel.kitu.my.id
+  udp: true
 - name: ava
   type: vless
   server: ava.game.naver.com
