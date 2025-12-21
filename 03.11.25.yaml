@@ -119,7 +119,7 @@ proxies:
       - GLOBAL
 rules:
   # Global
-  - MATCH,GLOBAL,Whatsapp
+  - MATCH,GLOBAL
   # Whatsapp
   - DOMAIN-SUFFIX,m.me,Whatsapp
   - DOMAIN-SUFFIX,oculus.com,Whatsapp
