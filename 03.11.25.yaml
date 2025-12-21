@@ -121,7 +121,6 @@ rules:
   # Global
   - MATCH,GLOBAL
   # Whatsapp
-  - DOMAIN-SUFFIX,m.me,Whatsapp
   - DOMAIN-SUFFIX,oculus.com,Whatsapp
   - DOMAIN-SUFFIX,oculuscdn.com,Whatsapp
   - DOMAIN-SUFFIX,rocksdb.org,Whatsapp
