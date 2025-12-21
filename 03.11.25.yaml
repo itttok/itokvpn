@@ -71,7 +71,7 @@ dns:
     headers:
      Host: api24-normal-alisg.tiktokv.com.it-wildcard-ssl-panel.kitu.my.id
   udp: true
-  proxy-groups:
+proxy-groups:
   - name: LOAD-BALANCE
     type: load-balance
     strategy: round-robin
