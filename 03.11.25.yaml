@@ -86,10 +86,8 @@ proxies:
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - tiktod
       - b
       - c
-      - ava
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
