@@ -40,7 +40,7 @@ dns:
     - 112.215.198.254
     - 112.215.203.248
     - 112.215.203.254
-  proxies:
+proxies:
 - name: b
   server: api24-normal-useast1a.tiktokv.com
   port: 443
