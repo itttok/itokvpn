@@ -41,21 +41,6 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: tiktod
-  type: vless
-  server: 104.21.28.78
-  port: 443
-  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
-  udp: true
-  chipher: auto
-  skip-cert-verify: true
-  tls: true
-  servername: id1-prem.kitu.my.id
-  network: ws
-  ws-opts:
-    path: "/vless-ws/"
-    headers:
-      Host: id1-prem.kitu.my.id
 - name: b
   server: api24-normal-useast1a.tiktokv.com
   port: 443
@@ -86,31 +71,14 @@ proxies:
     headers:
      Host: api24-normal-alisg.tiktokv.com.it-wildcard-ssl-panel.kitu.my.id
   udp: true
-- name: ava
-  type: vless
-  server: ava.game.naver.com
-  port: 443
-  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
-  udp: true
-  chipher: auto
-  skip-cert-verify: true
-  tls: true
-  servername: ava.game.naver.com.itttok-wildcard-ssl-panel.kitu.my.id
-  network: ws
-  ws-opts:
-    path: "/vless-ws/"
-    headers:
-      Host: ava.game.naver.com.itttok-wildcard-ssl-panel.kitu.my.id
-proxy-groups:
+  proxy-groups:
   - name: LOAD-BALANCE
     type: load-balance
     strategy: round-robin
     disable-udp: false
     proxies:
-      - tiktod
       - b
       - c
-      - ava
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: URL-TEST
@@ -128,10 +96,8 @@ proxy-groups:
   - name: SELECT
     type: select
     proxies:
-      - tiktod
       - b
       - c
-      - ava
   - name: GLOBAL
     type: select
     proxies:
