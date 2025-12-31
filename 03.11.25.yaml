@@ -79,7 +79,7 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: graph.instagram.com.alli.lingshi.id
+  servername: graph.instagram.com
   network: ws
   client-fingerprint: chrome
   alpn:
@@ -87,7 +87,7 @@ proxies:
   ws-opts:
     path: "/vless-antiads"
     headers:
-     Host: graph.instagram.com.alli.lingshi.id
+     Host: graph.instagram.com
   udp: true
 - name: catchplay
   server: partner.catchplay.com
