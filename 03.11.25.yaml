@@ -81,6 +81,9 @@ proxies:
   skip-cert-verify: true
   servername: graph.instagram.com.alli.lingshi.id
   network: ws
+  client-fingerprint: chrome
+  alpn:
+   - http/1.1
   ws-opts:
     path: "/vless-antiads"
     headers:
