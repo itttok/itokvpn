@@ -41,61 +41,97 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: b
+- name: tiktok1
   server: api24-normal.tiktokv.com
   port: 443
   type: vless
-  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: api24-normal.tiktokv.com.hh-wildcard-ssl-panel.kitu.my.id
+  servername: api24-normal.tiktokv.com.alli.lingshi.id
   network: ws
   ws-opts:
     path: "/vless-ws/"
     headers:
-     Host: api24-normal.tiktokv.com.hh-wildcard-ssl-panel.kitu.my.id
+     Host: api24-normal.tiktokv.com.alli.lingshi.id
   udp: true
-- name: c
+- name: tiktok2
   server: api24-normal-alisg.tiktokv.com
   port: 443
   type: vless
-  uuid: 2f846454-ac91-4843-b0e8-b47ecce865dd
+  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: api24-normal-alisg.tiktokv.com.it-wildcard-ssl-panel.kitu.my.id
+  servername: api24-normal-alisg.tiktokv.com.alli.lingshi.id
   network: ws
   ws-opts:
     path: "/vless-ws/"
     headers:
-     Host: api24-normal-alisg.tiktokv.com.it-wildcard-ssl-panel.kitu.my.id
+     Host: api24-normal-alisg.tiktokv.com.alli.lingshi.id
+  udp: true
+- name: instagram
+  server: colorful-instagram.com
+  port: 443
+  type: vless
+  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: colorful-instagram.com.alli.lingshi.id
+  network: ws
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+     Host: colorful-instagram.com.alli.lingshi.id
+  udp: true
+- name: catchplay
+  server: partner.catchplay.com
+  port: 443
+  type: vless
+  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81e
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: alli.lingshi.id
+  network: ws
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+     Host: alli.lingshi.id
   udp: true
 proxy-groups:
-  - name: LOAD-BALANCE
-    type: load-balance
-    strategy: round-robin
-    disable-udp: false
-    proxies:
-      - b
-      - c
-    url: http://www.gstatic.com/generate_204
-    interval: '10'
   - name: URL-TEST
     type: url-test
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - b
-      - c
+      - tiktok1
+      - tiktok2
+      - instagram
+      - catchplay
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
+  - name: LOAD-BALANCE
+    type: load-balance
+    strategy: round-robin
+    disable-udp: false
+    proxies:
+      - tiktok1
+      - tiktok2
+      - instagram
+      - catchplay
+    url: http://www.gstatic.com/generate_204
+    interval: '10'
   - name: SELECT
     type: select
     proxies:
-      - b
-      - c
+      - tiktok1
+      - tiktok2
+      - instagram
+      - catchplay
   - name: GLOBAL
     type: select
     proxies:
