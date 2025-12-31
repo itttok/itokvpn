@@ -72,19 +72,19 @@ proxies:
      Host: api24-normal-alisg.tiktokv.com.alli.lingshi.id
   udp: true
 - name: instagram
-  server: colorful-instagram.com
+  server: graph.instagram.com
   port: 443
   type: vless
   uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: colorful-instagram.com.alli.lingshi.id
+  servername: alli.lingshi.id
   network: ws
   ws-opts:
     path: "/vless-antiads/"
     headers:
-     Host: colorful-instagram.com.alli.lingshi.id
+     Host: alli.lingshi.id
   udp: true
 - name: catchplay
   server: partner.catchplay.com
