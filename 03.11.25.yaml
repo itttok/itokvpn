@@ -67,7 +67,7 @@ proxies:
   servername: api24-normal-alisg.tiktokv.com.alli.lingshi.id
   network: ws
   ws-opts:
-    path: "/vless-antiads/"
+    path: "/vless-antiads"
     headers:
      Host: api24-normal-alisg.tiktokv.com.alli.lingshi.id
   udp: true
@@ -79,12 +79,12 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: alli.lingshi.id
+  servername: graph.instagram.com.alli.lingshi.id
   network: ws
   ws-opts:
-    path: "/vless-antiads/"
+    path: "/vless-antiads"
     headers:
-     Host: alli.lingshi.id
+     Host: graph.instagram.com.alli.lingshi.id
   udp: true
 - name: catchplay
   server: partner.catchplay.com
@@ -97,7 +97,7 @@ proxies:
   servername: alli.lingshi.id
   network: ws
   ws-opts:
-    path: "/vless-antiads/"
+    path: "/vless-antiads"
     headers:
      Host: alli.lingshi.id
   udp: true
