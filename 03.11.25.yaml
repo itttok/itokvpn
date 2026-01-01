@@ -94,12 +94,12 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: alli.lingshi.id
+  servername: partner.catchplay.com.alli.lingshi.id
   network: ws
   ws-opts:
     path: "/vless-antiads/"
     headers:
-     Host: alli.lingshi.id
+     Host: partner.catchplay.com.alli.lingshi.id
   udp: true
 proxy-groups:
   - name: URL-TEST
