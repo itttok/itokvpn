@@ -91,7 +91,6 @@ proxies:
   port: 443
   type: vless
   uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81e
-  cipher: auto
   tls: true
   skip-cert-verify: true
   servername: partner.catchplay.com.alli.lingshi.id
