@@ -67,7 +67,7 @@ proxies:
   servername: api24-normal-alisg.tiktokv.com.alli.lingshi.id
   network: ws
   ws-opts:
-    path: "/vless-antiads/"
+    path: "/vless-antiads"
     headers:
      Host: api24-normal-alisg.tiktokv.com.alli.lingshi.id
   udp: true
@@ -82,7 +82,7 @@ proxies:
   servername: colorful-instagram.com.alli.lingshi.id
   network: ws
   ws-opts:
-    path: "/vless-antiads/"
+    path: "/vless-antiads"
     headers:
      Host: colorful-instagram.com.alli.lingshi.id
   udp: true
@@ -100,7 +100,7 @@ proxies:
   alpn:
    - http/1.1
   ws-opts:
-    path: "/vless-antiads/"
+    path: "/vless-antiads"
     headers:
      Host: partner.catchplay.com.alli.lingshi.id
   udp: true
