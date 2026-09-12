@@ -41,67 +41,39 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: tiktok1
-  server: api24-normal.tiktokv.com
+- name: 1
+  server: id1-prem.kitu.my.id
   port: 443
   type: vless
-  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
+  uuid: 4af24741-cefa-44ee-bab9-5ba2fe23fc95
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: api24-normal.tiktokv.com.alli.lingshi.id
-  network: ws
-  ws-opts:
-    path: "/vless-antiads"
-    headers:
-     Host: api24-normal.tiktokv.com.alli.lingshi.id
-  udp: true
-- name: tiktok2
-  server: api24-normal-alisg.tiktokv.com
-  port: 443
-  type: vless
-  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: api24-normal-alisg.tiktokv.com.alli.lingshi.id
-  network: ws
-  ws-opts:
-    path: "/vless-antiads"
-    headers:
-     Host: api24-normal-alisg.tiktokv.com.alli.lingshi.id
-  udp: true
-- name: instagram
-  server: colorful-instagram.com
-  port: 443
-  type: vless
-  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: colorful-instagram.com.alli.lingshi.id
-  network: ws
-  ws-opts:
-    path: "/vless-antiads"
-    headers:
-     Host: colorful-instagram.com.alli.lingshi.id
-  udp: true
-- name: catchplay
-  server: partner.catchplay.com
-  port: 443
-  type: vless
-  uuid: 741ddb2a-0205-4bd8-9150-46cd49dc0a81
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: partner.catchplay.com.alli.lingshi.id
+  servername: vplay.iflix.com
   network: ws
   alpn:
    - http/1.1
   ws-opts:
-    path: "/vless-antiads"
+    path: "/vless-ws/"
     headers:
-     Host: partner.catchplay.com.alli.lingshi.id
+     Host: id1-prem.kitu.my.id
+  udp: true
+- name: 2
+  server: id1-prem.kitu.my.id
+  port: 443
+  type: vless
+  uuid: 4af24741-cefa-44ee-bab9-5ba2fe23fc95
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  servername: www.iflix.com
+  network: ws
+  alpn:
+   - http/1.1
+  ws-opts:
+    path: "/vless-ws/"
+    headers:
+     Host: id1-prem.kitu.my.id
   udp: true
 proxy-groups:
   - name: URL-TEST
@@ -109,10 +81,8 @@ proxy-groups:
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - tiktok1
-      - tiktok2
-      - instagram
-      - catchplay
+      - 1
+      - 2
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -121,19 +91,15 @@ proxy-groups:
     strategy: round-robin
     disable-udp: false
     proxies:
-      - tiktok1
-      - tiktok2
-      - instagram
-      - catchplay
+      - 1
+      - 2
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: SELECT
     type: select
     proxies:
-      - tiktok1
-      - tiktok2
-      - instagram
-      - catchplay
+      - 1
+      - 2
   - name: GLOBAL
     type: select
     proxies:
