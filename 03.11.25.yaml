@@ -49,7 +49,7 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: hwvip.iflix.com
+  servername: vplay.iflix.com
   network: ws
   alpn:
    - http/1.1
