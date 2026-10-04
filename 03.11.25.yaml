@@ -41,39 +41,20 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: 1
-  server: id1-prem.kitu.my.id
+- name: a
+  server: api24-normal-alisg.tiktokv.com
   port: 443
   type: vless
-  uuid: 4af24741-cefa-44ee-bab9-5ba2fe23fc95
+  uuid: 5a3e60a8-5f14-4f64-ac28-f24a3e95316e
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: vplay.iflix.com
+  servername: api24-normal-alisg.tiktokv.com.vpnvip.nadia-lestari.my.id
   network: ws
-  alpn:
-   - http/1.1
   ws-opts:
-    path: "/vless-ws/"
+    path: "/vless-ws"
     headers:
-     Host: id1-prem.kitu.my.id
-  udp: true
-- name: 2
-  server: id1-prem.kitu.my.id
-  port: 443
-  type: vless
-  uuid: 4af24741-cefa-44ee-bab9-5ba2fe23fc95
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: www.iflix.com
-  network: ws
-  alpn:
-   - http/1.1
-  ws-opts:
-    path: "/vless-ws/"
-    headers:
-     Host: id1-prem.kitu.my.id
+     Host: api24-normal-alisg.tiktokv.com.vpnvip.nadia-lestari.my.id
   udp: true
 proxy-groups:
   - name: URL-TEST
@@ -81,8 +62,7 @@ proxy-groups:
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - 1
-      - 2
+      - a
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -91,15 +71,13 @@ proxy-groups:
     strategy: round-robin
     disable-udp: false
     proxies:
-      - 1
-      - 2
+      - a
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: SELECT
     type: select
     proxies:
-      - 1
-      - 2
+      - a
   - name: GLOBAL
     type: select
     proxies:
