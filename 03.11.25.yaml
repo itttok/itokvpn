@@ -41,7 +41,7 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: 0
+- name: aa
   server: id1-prem.kitu.my.id
   port: 443
   type: vless
