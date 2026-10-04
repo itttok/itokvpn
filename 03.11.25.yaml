@@ -41,7 +41,7 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: aa
+- name: aaa
   server: id1-prem.kitu.my.id
   port: 443
   type: vless
@@ -64,7 +64,7 @@ proxy-groups:
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - aa
+      - aaa
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -73,13 +73,13 @@ proxy-groups:
     strategy: round-robin
     disable-udp: false
     proxies:
-      - aa
+      - aaa
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: SELECT
     type: select
     proxies:
-      - aa
+      - aaa
   - name: GLOBAL
     type: select
     proxies:
