@@ -41,20 +41,20 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: a
-  server: api24-normal-alisg.tiktokv.com
+- name: aa
+  server: ip.nadia-lestari.my.id
   port: 443
   type: vless
   uuid: 5a3e60a8-5f14-4f64-ac28-f24a3e95316e
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: api24-normal-alisg.tiktokv.com.vpnvip.nadia-lestari.my.id
+  servername: upload.iflix.com
   network: ws
   ws-opts:
     path: "/vless-ws"
     headers:
-     Host: api24-normal-alisg.tiktokv.com.vpnvip.nadia-lestari.my.id
+     Host: vpnvip.nadia-lestari.my.id
   udp: true
 proxy-groups:
   - name: URL-TEST
@@ -62,7 +62,7 @@ proxy-groups:
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - a
+      - aa
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -71,13 +71,13 @@ proxy-groups:
     strategy: round-robin
     disable-udp: false
     proxies:
-      - a
+      - aa
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: SELECT
     type: select
     proxies:
-      - a
+      - aa
   - name: GLOBAL
     type: select
     proxies:
