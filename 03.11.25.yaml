@@ -41,8 +41,7 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: aa
-  server: ip.nadia-lestari.my.id
+  server: vpnvip.nadia-lestari.my.id
   port: 443
   type: vless
   uuid: 5a3e60a8-5f14-4f64-ac28-f24a3e95316e
@@ -51,8 +50,10 @@ proxies:
   skip-cert-verify: true
   servername: hwvip.iflix.com
   network: ws
+  alpn:
+   - http/1.1
   ws-opts:
-    path: "/vless-ws"
+    path: "/vless-ws/"
     headers:
      Host: vpnvip.nadia-lestari.my.id
   udp: true
