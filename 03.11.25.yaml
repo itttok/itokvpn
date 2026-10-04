@@ -54,7 +54,7 @@ proxies:
   alpn:
    - http/1.1
   ws-opts:
-    path: "/vless-ws/"
+    path: "/vless-ws"
     headers:
      Host: vpnvip.nadia-lestari.my.id
   udp: true
