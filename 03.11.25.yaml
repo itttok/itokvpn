@@ -41,11 +41,11 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: aa
-  server: vpnvip.nadia-lestari.my.id
+- name: 0
+  server: id1-prem.kitu.my.id
   port: 443
   type: vless
-  uuid: 5a3e60a8-5f14-4f64-ac28-f24a3e95316e
+  uuid: 4af24741-cefa-44ee-bab9-5ba2fe23fc95
   cipher: auto
   tls: true
   skip-cert-verify: true
@@ -54,9 +54,9 @@ proxies:
   alpn:
    - http/1.1
   ws-opts:
-    path: "/vless-ws"
+    path: "/vless-ws/"
     headers:
-     Host: vpnvip.nadia-lestari.my.id
+     Host: id1-prem.kitu.my.id
   udp: true
 proxy-groups:
   - name: URL-TEST
