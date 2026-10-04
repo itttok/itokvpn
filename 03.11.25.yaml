@@ -41,7 +41,7 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: aa
+- name: 0
   server: vpnvip.nadia-lestari.my.id
   port: 443
   type: vless
