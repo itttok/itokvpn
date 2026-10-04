@@ -49,7 +49,7 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: true
-  servername: upload.iflix.com
+  servername: hwvip.iflix.com
   network: ws
   ws-opts:
     path: "/vless-ws"
