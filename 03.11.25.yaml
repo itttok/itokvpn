@@ -104,8 +104,8 @@ proxy-groups:
     type: fallback
     disable-udp: true
     proxies:
-    - b
-    - a
+      - b
+      - a
     url: http://www.youtube.com/generate_204
     interval: '100'
   - name: GLOBAL
