@@ -111,10 +111,10 @@ proxy-groups:
   - name: GLOBAL
     type: select
     proxies:
-      - SELECT
-      - LOAD-BALANCE
-      - URL-TEST
       - FALLBACK
+      - URL-TEST
+      - LOAD-BALANCE
+      - SELECT
 rules:
   # Global
   - MATCH,GLOBAL
