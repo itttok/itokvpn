@@ -76,6 +76,34 @@ proxies:
     headers:
       Host: dnuziifot7vvr.cloudfront.net
 proxy-groups:
+  - name: GLOBAL
+    type: select
+    proxies:
+      - FALLBACK
+  - name: URL-TEST
+    type: url-test
+    strategy: consistent-hashing
+    disable-udp: true
+    proxies:
+      - a
+      - b
+    url: http://www.gstatic.com/generate_204
+    interval: '10'
+    tolerance: '15'
+  - name: LOAD-BALANCE
+    type: load-balance
+    strategy: round-robin
+    disable-udp: false
+    proxies:
+      - a
+      - b
+    url: http://www.gstatic.com/generate_204
+    interval: '10'
+  - name: SELECT
+    type: select
+    proxies:
+      - a
+      - b
   - name: FALLBACK
     type: fallback
     disable-udp: true
@@ -84,3 +112,5 @@ proxy-groups:
       - a
     url: http://www.youtube.com/generate_204
     interval: '100'
+rules:
+  - MATCH,GLOBAL
