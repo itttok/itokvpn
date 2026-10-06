@@ -100,7 +100,7 @@ proxy-groups:
     proxies:
       - a
       - b
-  - name: URUTAN
+  - name: FALLBACK
     type: fallback
     disable-udp: true
     proxies:
