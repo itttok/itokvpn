@@ -106,6 +106,14 @@ proxy-groups:
       - SELECT
       - LOAD-BALANCE
       - URL-TEST
+  - name: URUTAN
+    type: fallback
+    disable-udp: true
+    proxies:
+    - b
+    - a
+    url: http://www.youtube.com/generate_204
+    interval: '100'
 rules:
   # Global
   - MATCH,GLOBAL
