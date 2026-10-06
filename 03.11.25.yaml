@@ -114,7 +114,7 @@ proxy-groups:
       - SELECT
       - LOAD-BALANCE
       - URL-TEST
-      - URUTAN
+      - FALLBACK
 rules:
   # Global
   - MATCH,GLOBAL
