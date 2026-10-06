@@ -41,7 +41,7 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: aaa
+- name: a
   server: vpnvip.nadia-lestari.my.id
   port: 443
   type: vless
@@ -58,13 +58,31 @@ proxies:
     headers:
      Host: vpnvip.nadia-lestari.my.id
   udp: true
+- name: b
+  type: vless
+  server: 13.249.231.85
+  port: 443
+  uuid: 5a3e60a8-5f14-4f64-ac28-f24a3e95316e
+  udp: true
+  tls: true
+  network: ws
+  client-fingerprint: chrome
+  servername: dnuziifot7vvr.cloudfront.net
+  alpn:
+   - http/1.1
+  skip-cert-verify: true
+  ws-opts:
+    path: "/vless-ws/" 
+    headers:
+      Host: dnuziifot7vvr.cloudfront.net
 proxy-groups:
   - name: URL-TEST
     type: url-test
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - aaa
+      - a
+      - b
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -73,13 +91,15 @@ proxy-groups:
     strategy: round-robin
     disable-udp: false
     proxies:
-      - aaa
+      - a
+      - b
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: SELECT
     type: select
     proxies:
-      - aaa
+      - a
+      - b
   - name: GLOBAL
     type: select
     proxies:
