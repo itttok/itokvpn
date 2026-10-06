@@ -67,14 +67,14 @@ proxies:
   tls: true
   network: ws
   client-fingerprint: chrome
-  servername: dnuziifot7vvr.cloudfront.net
+  servername: d1s160zte20y2r.cloudfront.net
   alpn:
    - http/1.1
   skip-cert-verify: true
   ws-opts:
     path: "/vless-ws/" 
     headers:
-      Host: dnuziifot7vvr.cloudfront.net
+      Host: d1s160zte20y2r.cloudfront.net
 proxy-groups:
   - name: GLOBAL
     type: select
