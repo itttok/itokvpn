@@ -6,7 +6,7 @@ R='\033[0;31m'
 G='\033[0;32m'
 N='\033[0m'
 
-TOTAL_STEPS=7
+TOTAL_STEPS=10
 STEP=0
 
 run_step() {
@@ -63,6 +63,15 @@ run_step "Installing termux-adb" \
 
 run_step "Installing mitool" \
     "pip install -U pymitool"
+
+run_step "Installing termux-api" \
+    "yes | pkg install git -y"
+
+run_step "Installing termux-api" \
+    "yes | apt install python-pillow -y"
+
+run_step "Installing termux-api" \
+    "yes | pip install -r requirements.txt"
 
 echo -e "\n${G}✔ Installation completed successfully${N}"
 echo -e "\nRun command: ${G}mitool${N}\n"
