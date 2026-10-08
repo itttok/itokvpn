@@ -64,13 +64,13 @@ run_step "Installing termux-adb" \
 run_step "Installing mitool" \
     "pip install -U pymitool"
 
-run_step "Installing termux-api" \
+run_step "Installing git" \
     "pkg install git -y"
 
-run_step "Installing termux-api" \
+run_step "Installing python-pillow" \
     "apt install python-pillow -y"
 
-run_step "Installing termux-api" \
+run_step "Installing pip requirements" \
     "pip install -r requirements.txt"
 
 echo -e "\n${G}✔ Installation completed successfully${N}"
