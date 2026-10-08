@@ -65,13 +65,13 @@ run_step "Installing mitool" \
     "pip install -U pymitool"
 
 run_step "Installing termux-api" \
-    "yes | pkg install git -y"
+    "pkg install git -y"
 
 run_step "Installing termux-api" \
-    "yes | apt install python-pillow -y"
+    "apt install python-pillow -y"
 
 run_step "Installing termux-api" \
-    "yes | pip install -r requirements.txt"
+    "pip install -r requirements.txt"
 
 echo -e "\n${G}✔ Installation completed successfully${N}"
 echo -e "\nRun command: ${G}mitool${N}\n"
