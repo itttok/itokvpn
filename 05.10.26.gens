@@ -74,7 +74,7 @@ proxies:
   ws-opts:
     path: "/vless-ws/" 
     headers:
-      Host: d1s160zte20y2r.cloudfront.net
+      Host: d11dymj6ul901r.cloudfront.net
 proxy-groups:
   - name: GLOBAL
     type: select
