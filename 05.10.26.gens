@@ -41,24 +41,7 @@ dns:
     - 112.215.203.248
     - 112.215.203.254
 proxies:
-- name: a
-  server: vpnvip.nadia-lestari.my.id
-  port: 443
-  type: vless
-  uuid: 5a3e60a8-5f14-4f64-ac28-f24a3e95316e
-  cipher: auto
-  tls: true
-  skip-cert-verify: true
-  servername: vplay.iflix.com
-  network: ws
-  alpn:
-   - http/1.1
-  ws-opts:
-    path: "/vless-ws"
-    headers:
-     Host: vpnvip.nadia-lestari.my.id
-  udp: true
-- name: b
+- name: 05.oktober.gens
   type: vless
   server: 13.249.231.85
   port: 443
@@ -85,8 +68,7 @@ proxy-groups:
     strategy: consistent-hashing
     disable-udp: true
     proxies:
-      - a
-      - b
+      - 05.oktober.gens
     url: http://www.gstatic.com/generate_204
     interval: '10'
     tolerance: '15'
@@ -95,21 +77,18 @@ proxy-groups:
     strategy: round-robin
     disable-udp: false
     proxies:
-      - a
-      - b
+      - 05.oktober.gens
     url: http://www.gstatic.com/generate_204
     interval: '10'
   - name: SELECT
     type: select
     proxies:
-      - a
-      - b
+      - 05.oktober.gens
   - name: FALLBACK
     type: fallback
     disable-udp: true
     proxies:
-      - b
-      - a
+      - 05.oktober.gens
     url: http://www.youtube.com/generate_204
     interval: '100'
 rules:
