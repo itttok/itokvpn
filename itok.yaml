@@ -25,7 +25,6 @@ dns:
     - 112.215.198.248
     - 112.215.198.254
     - 112.215.203.248
-    - https://dns.adguard.com/dns-query
   fallback:
     - 1.0.0.1
     - https://dns.cloudflare.com/dns-query
@@ -34,7 +33,6 @@ dns:
     - 112.215.198.248
     - 112.215.198.254
     - 112.215.203.248
-    - https://dns.adguard.com/dns-query
   default-nameserver:
     - 1.1.1.1
     - 8.8.8.8
@@ -42,7 +40,6 @@ dns:
     - 112.215.198.254
     - 112.215.203.248
     - 112.215.203.254
-    - https://dns.adguard.com/dns-query
 proxies:
 - name: a
   server: vpnvip.nadia-lestari.my.id
