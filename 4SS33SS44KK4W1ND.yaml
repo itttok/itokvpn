@@ -46,7 +46,7 @@ dns:
 proxies:
 - name: 04.Desember.2026.08:57
   type: vless
-  server: 13.249.231.85
+  server: 13.249.231.21
   port: 443
   uuid: 5bcb250f-26e1-4777-92e3-43735a60e696
   udp: true
