@@ -61,10 +61,30 @@ proxies:
     path: "/vless-ws/" 
     headers:
       Host: d1s160zte20y2r.cloudfront.net
-proxy-groups:
-  - name: SELECT
-    type: select
+- name: iflix
+  type: vless
+  server: vpnvip.nadia-lestari.my.id
+  port: 443
+  uuid: 5bcb250f-26e1-4777-92e3-43735a60e696
+  udp: true
+  tls: true
+  network: ws
+  client-fingerprint: chrome
+  servername: vplay.iflix.com
+  alpn:
+   - http/1.1
+  skip-cert-verify: true
+  ws-opts:
+    path: "/vless-ws/" 
+    headers:
+      Host: vpnvip.nadia-lestari.my.id
+  - name: FALLBACK
+    type: fallback
+    disable-udp: true
     proxies:
       - 04.Desember.2026.08:57
+      - iflix
+    url: http://www.gstatic.com/generate_204
+    interval: '10'
 rules:
-  - MATCH,SELECT
+  - MATCH,FALLBACK
