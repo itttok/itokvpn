@@ -61,10 +61,28 @@ proxies:
     path: "/vless-ws/" 
     headers:
       Host: d2woxywv9mctnq.cloudfront.net
+- name: iflix
+  type: vless
+  server: biznet.vpnstore28.my.id
+  port: 443
+  uuid: cb85a3b8-9bef-47a9-909b-9deb6ed0687c
+  udp: true
+  tls: true
+  network: ws
+  client-fingerprint: chrome
+  servername: vplay.iflix.com
+  alpn:
+   - http/1.1
+  skip-cert-verify: true
+  ws-opts:
+    path: "/vless-ws/" 
+    headers:
+      Host: biznet.vpnstore28.my.id
 proxy-groups:
   - name: SELECT
     type: select
     proxies:
       - 03.Desember.2026.03:55
+      - iflix
 rules:
   - MATCH,SELECT
