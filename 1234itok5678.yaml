@@ -79,10 +79,13 @@ proxies:
     headers:
       Host: biznet.vpnstore28.my.id
 proxy-groups:
-  - name: SELECT
-    type: select
+  - name: FALLBACK
+    type: fallback
+    disable-udp: true
     proxies:
       - 03.Desember.2026.03:55
       - iflix
+    url: http://www.gstatic.com/generate_204
+    interval: '10'
 rules:
-  - MATCH,SELECT
+  - MATCH,FALLBACK
