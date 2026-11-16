@@ -78,6 +78,7 @@ proxies:
     path: "/vless-ws/" 
     headers:
       Host: vpnvip.nadia-lestari.my.id
+proxy-groups:
   - name: FALLBACK
     type: fallback
     disable-udp: true
